@@ -120,7 +120,7 @@ storiesOf("InterviewerList", module)
   })
   .add("Initial", () => <InterviewerList interviewers={interviewers} />)
   .add("Selected", () => (
-    <InterviewerList interviewers={interviewers} value={3} />
+    <InterviewerList interviewers={interviewers} value={1} />
   ))
   .add("Clickable", () => (
     <InterviewerList
