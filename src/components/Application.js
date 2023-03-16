@@ -4,7 +4,8 @@ import axios from "axios";
 import "components/Application.scss";
 import Appointment from "components/Appointment";
 import DayList from "./DayList";
-import { getAppointmentsForDay, getInterview } from "helpers/selectors";
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
+
 
 export default function Application(props) {
   const [state, setState] = useState({
@@ -15,6 +16,8 @@ export default function Application(props) {
   });
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
+  const dailyInterviewers = getInterviewersForDay(state, state.day);
+
   const setDay = (day) => setState({ ...state, day });
 
   Promise.all([
@@ -43,6 +46,7 @@ export default function Application(props) {
         {...appointment}
         interview={interview}
         bookInterview={bookInterview}
+        interviewers={dailyInterviewers}
       />
     );
   });
@@ -67,7 +71,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {appointmentArray}
-        <Appointment key="last" time="5pm"/>!!!
+        <Appointment key="last" time="5pm"/>
       </section>
     </main>
   );

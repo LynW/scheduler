@@ -7,7 +7,6 @@ import Empty from "./Empty";
 import Show from "./Show";
 import Form from "./Form";
 
-
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
@@ -18,12 +17,12 @@ export default function Appointment(props) {
   );
 
   function save(name, interviewer) {
-  const interview = {
-    student: name,
-    interviewer
-  };
-}
-  
+    console.log(name, interviewer);
+    const interview = {
+      student: name,
+      interviewer,
+    };
+  }
 
   return (
     <article className="appointment">
@@ -35,8 +34,9 @@ export default function Appointment(props) {
           interviewer={props.interview.interviewer}
         />
       )}
-      {mode === CREATE && <Form interviewers={[]} onCancel={back} />}
-      
+      {mode === CREATE && (
+        <Form interviewers={props.interviewers} onCancel={back} onSave={save} />
+      )}
     </article>
   );
 }
