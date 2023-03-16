@@ -18,6 +18,13 @@ Interview Scheduler is a single-page application (SPA) that allows users to book
 - When the user presses the close button of the error they are returned to the Form or Show view (skipping Status and Confirm).
 - The application makes API requests to load and persist data. We do not lose data after a browser refresh.
 
+## Screenshots
+<img src="documents/image1.png" style="width:500px;"/>
+<br>
+<img src="documents/image2.png"  style="width:500px;"/>
+<br>
+<img src="documents/image3.png" style="width:500px;"/>
+
 ## Setup
 
 Install dependencies with `npm install`.
