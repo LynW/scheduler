@@ -37,6 +37,13 @@ export default function useApplicationData() {
       [id]: appointment,
     };
 
+    const days = state.days.map((day) => {
+      if (day.name === state.day && !state.appointments[id].interview) {
+        day.spots--;
+      }
+      return day;
+    });
+
     return axios
       .put(`http://localhost:8001/api/appointments/${id}`, { interview })
       .then((res) => {
@@ -67,6 +74,12 @@ export default function useApplicationData() {
             appointments,
           });
         }
+        const days = state.days.map((day) => {
+          if (day.name === state.day) {
+            day.spots++;
+          }
+          return day;
+        });
       });
   }
   return { state, setState, bookInterview, cancelInterview, setDay };
