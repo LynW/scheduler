@@ -2,6 +2,7 @@ import React from "react";
 import Button from "components/Button";
 import "components/Appointment/styles.scss";
 
+// Confirm with user if they are sure they want to delete the appointment
 export default function Confirm(props) {
   return (
     <main className="appointment__card appointment__card--confirm">

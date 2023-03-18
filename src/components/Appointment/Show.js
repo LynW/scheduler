@@ -1,5 +1,7 @@
 import React from "react";
+import "components/Appointment/styles.scss";
 
+//Show allows user to hover over the appointment revealing an edit and delete button
 export default function Show(props) {
   return (
     <main className="appointment__card appointment__card--show">
@@ -28,4 +30,4 @@ export default function Show(props) {
       </section>
     </main>
   );
-};
+}

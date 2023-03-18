@@ -1,5 +1,7 @@
 import React from "react";
+import "components/Appointment/styles.scss";
 
+// Handle cases where something fails, shows error message. Allows user to close the error message.
 export default function Error(props) {
   return (
     <main className="appointment__card appointment__card--error">
@@ -15,4 +17,4 @@ export default function Error(props) {
       />
     </main>
   );
-};
+}
