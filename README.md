@@ -19,11 +19,11 @@ Interview Scheduler is a single-page application (SPA) that allows users to book
 - The application makes API requests to load and persist data. We do not lose data after a browser refresh.
 
 ## Screenshots
-<img src="documents/image1.png" style="width:500px;"/>
+<img src="documents/image1.png" style="width:500px;" alt="Scheduler with booked appointments and one slot 3PM available to be booked"/>
 <br>
-<img src="documents/image2.png"  style="width:500px;"/>
+<img src="documents/image2.png"  style="width:500px;" alt="View of booking an appointment on the 12PM slot. Enter student's name, select the interviewer by picture, cancel, and save button"/>
 <br>
-<img src="documents/image3.png" style="width:500px;"/>
+<img src="documents/image3.png" style="width:500px;" alt="Prompt when deleting an existing appointment"/>
 
 ## Setup
 
@@ -34,6 +34,13 @@ Install dependencies with `npm install`.
 ```sh
 npm start
 ```
+
+## Running Interview Scheduler API
+Fork and clone `scheduler-api` into a new directory not within `scheduler`.
+Follow `README.md` instructions.
+https://github.com/lighthouse-labs/scheduler-api
+
+We'll need to run two servers to work on our application. The scheduler client (scheduler) and the scheduler server (scheduler-api). The client runs on port 8000, and the API server runs on port 8001.
 
 ## Running Jest Test Framework
 
@@ -46,3 +53,4 @@ npm test
 ```sh
 npm run storybook
 ```
+
