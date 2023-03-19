@@ -3,32 +3,19 @@ import React from "react";
 import "components/Application.scss";
 import Appointment from "components/Appointment";
 import DayList from "./DayList";
-import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
-import useApplicationData from 'hooks/useApplicationData';
+import {
+  getAppointmentsForDay,
+  getInterview,
+  getInterviewersForDay,
+} from "helpers/selectors";
+import useApplicationData from "hooks/useApplicationData";
 
 export default function Application(props) {
-  const {
-    state,
-    setDay,
-    bookInterview,
-    cancelInterview,
-  } = useApplicationData();
+  const { state, setDay, bookInterview, cancelInterview } =
+    useApplicationData();
 
   const dailyInterviewers = getInterviewersForDay(state, state.day);
-
-  const dailyAppointments = getAppointmentsForDay(state, state.day).map((appointment) => {
-    const interview = getInterview(state, appointment.interview);
-    return (
-      <Appointment
-        key={appointment.id}
-        {...appointment}
-        interview={interview}
-        bookInterview={bookInterview}
-        interviewers={dailyInterviewers}
-        cancelInterview={cancelInterview}
-      />
-    );
-  });
+  const dailyAppointments = getAppointmentsForDay(state, state.day);
 
   return (
     <main className="layout">
@@ -49,8 +36,20 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
-        {dailyAppointments}
-        <Appointment key="last" time="5pm"/>
+        {dailyAppointments.map((appointment) => {
+          const interview = getInterview(state, appointment.interview);
+          return (
+            <Appointment
+              key={appointment.id}
+              {...appointment}
+              interview={interview}
+              bookInterview={bookInterview}
+              interviewers={dailyInterviewers}
+              cancelInterview={cancelInterview}
+            />
+          );
+        })}
+        <Appointment key="last" time="5pm" />
       </section>
     </main>
   );
