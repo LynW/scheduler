@@ -16,7 +16,7 @@ export default function Form(props) {
 
   const cancel = function () {
     reset();
-    props.onCancel();
+    return props.onCancel();
   };
 
   function validate() {
@@ -38,12 +38,11 @@ export default function Form(props) {
         <form autoComplete="off" onSubmit={(event) => event.preventDefault()}>
           <input
             className="appointment__create-input text--semi-bold"
-            student="student"
             name={props.name}
             type="text"
             placeholder="Enter Student Name"
             onChange={(event) => setStudent(event.target.value)}
-            value={props.student}
+            value={student}
             data-testid="student-name-input"
           />
         </form>
