@@ -4,11 +4,6 @@ import Application from "components/Application";
 
 afterEach(cleanup);
 
-describe("Application", () => {
-  xit("renders without crashing", () => {
-    render(<Application />);
-  });
-  it("does something it is supposed to do", () => {
-    // ...
-  });
+xit("renders without crashing", () => {
+  render(<Application />);
 });
